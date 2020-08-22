@@ -1,0 +1,119 @@
+namespace = tota_start
+
+event = {
+	id = tota_start.1
+	hide_window = yes
+	is_triggered_only = yes
+	
+	immediate = {
+		every_country = {
+			limit = { exists = capital_scope }
+						
+			if = {
+				limit = {ideal_planet_class = "pc_desert"}
+				capital_scope = {
+					change_pc = "pc_desert"
+				}
+			}
+			if = {
+				limit = {ideal_planet_class = "pc_tropical"}
+				capital_scope = {
+					change_pc = "pc_tropical"
+				}
+			}
+			if = {
+				limit = {ideal_planet_class = "pc_arid"}
+				capital_scope = {
+					change_pc = "pc_arid"
+				}
+			}
+			if = {
+				limit = {ideal_planet_class = "pc_continental"}
+				capital_scope = {
+					change_pc = "pc_continental"
+				}
+			}
+			if = {
+				limit = {ideal_planet_class = "pc_ocean"}
+				capital_scope = {
+					change_pc = "pc_ocean"
+				}
+			}
+			if = {
+				limit = {ideal_planet_class = "pc_tundra"}
+				capital_scope = {
+					change_pc = "pc_tundra"
+				}
+			}
+			if = {
+				limit = {ideal_planet_class = "pc_arctic"}
+				capital_scope = {
+					change_pc = "pc_arctic"
+				}
+			}
+			country_event = { id = tota_start.2 }
+		}
+	}
+}
+
+country_event = {
+	id = tota_start.2
+	hide_window = yes
+	is_triggered_only = yes
+
+	immediate = {
+		give_technology = { tech = "tech_society_1" message = no }
+		give_technology = { tech = "tech_engineering_1" message = no }
+		give_technology = { tech = "tech_physics_1" message = no }
+		give_technology = { tech = "tech_planetary_unification" message = no }
+
+		add_resource = { energy = 1000	}
+		add_resource = { minerals = 1000 }
+		add_resource = { alloys = 500	}
+		add_resource = { influence = 200 }
+		if = {
+			limit = { is_machine_empire = no }
+			add_resource = { food = 1000 }
+		}
+		else = {
+			add_resource = { energy = 1000 }
+		}
+		if = {
+			limit = { is_gestalt = no }
+			add_resource = { consumer_goods = 500 }
+		}
+		else = {
+			add_resource = { minerals = 500 }
+		}
+
+		every_planet_within_border = {
+			limit = {
+				has_deposit_for = shipclass_mining_station
+				has_mining_station = no
+			}
+			create_mining_station = {
+				owner = ROOT
+			}
+		}
+		every_planet_within_border = {
+			limit = {
+				has_deposit_for = shipclass_research_station
+				has_research_station = no
+			}
+			create_research_station = {
+				owner = ROOT
+			}
+		}
+		every_system_within_border = {
+			every_fleet_in_system = {
+				limit = {
+					owner = {
+						is_hostile = ROOT
+					}
+					
+				}
+				destroy_fleet = this
+			}
+		}
+	}
+}

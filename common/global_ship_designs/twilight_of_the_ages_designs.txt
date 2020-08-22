@@ -1,0 +1,24 @@
+# Starbase Desgin
+ship_design = {
+	name = "NAME_PLAYER_Starbase"
+	ship_size = starbase_outpost
+	section = {
+		template = "OUTPOST_STARBASE_SECTION"
+		slot = "cor"
+		
+		component = {
+			slot = "MEDIUM_GUN_01"
+			template = "MISSILE_3"
+		}
+		component = {
+			slot = "LARGE_UTILITY_1"
+			template = "LARGE_ARMOR_3"
+		}
+		component = {
+			slot = "LARGE_UTILITY_2"
+			template = "LARGE_SHIELD_3"
+		}
+		
+	}
+	required_component="SENSOR_2"
+}

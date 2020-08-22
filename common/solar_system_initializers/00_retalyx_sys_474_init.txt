@@ -1,0 +1,26 @@
+sys_474_init = {
+    class = random
+
+    planet = {
+        class = star
+        orbit_distance = 0
+        size = 20
+    }
+
+    planet = {
+        class = "pc_nuked"
+        orbit_distance = 56
+        orbit_angle = 177
+        size = 15
+        has_ring = yes
+
+    }
+
+    planet = {
+        class = random
+        orbit_distance = 53
+        orbit_angle = 9
+        has_ring = no
+
+    }
+}
