@@ -1,1 +1,1 @@
-Stellaris mod for DPS S5+
+Stellaris mod for DPS S5
